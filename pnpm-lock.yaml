@@ -41,15 +41,12 @@ devDependencies:
   jest-junit:
     specifier: ^15
     version: 15.0.0
-  pnpm:
-    specifier: ^8.0
-    version: 8.13.1
   prettier:
     specifier: ^3.2
     version: 3.2.5
   projen:
-    specifier: ^0.77.1
-    version: 0.77.6(constructs@10.3.0)
+    specifier: 0.80.19
+    version: 0.80.19(constructs@10.3.0)
   standard-version:
     specifier: ^9
     version: 9.5.0
@@ -3822,12 +3819,6 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /pnpm@8.13.1:
-    resolution: {integrity: sha512-dYvrxpictkYsUTgSmEAZOxDCWN3NsKtD7g753Yd4S8IY1uQctb7qw2K4zjPx+LCAJbWZkzwLzoIFCpo2uEdNQw==}
-    engines: {node: '>=16.14'}
-    hasBin: true
-    dev: true
-
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -3859,8 +3850,8 @@ packages:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
     dev: true
 
-  /projen@0.77.6(constructs@10.3.0):
-    resolution: {integrity: sha512-nXbbDr81UjfLjCfVfHGfGPIjiN7INSyMUa52FYupX0TmybMq+CnvX8o0O45feOLLhsifNq7EHXtF+hgBtpBb8A==}
+  /projen@0.80.19(constructs@10.3.0):
+    resolution: {integrity: sha512-icZyUZlfk/cc5HcAmm+aunSYzOjF1e+ZdTB/9K/++KktKrkqQJHD6y/EBkvU7rKsfQlntuX5ESt2xsXNgVBJzg==}
     engines: {node: '>= 16.0.0'}
     hasBin: true
     peerDependencies:

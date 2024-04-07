@@ -52,3 +52,4 @@ junit.xml
 /dist/
 !/.eslintrc.json
 .pnpm-store/
+.nx/

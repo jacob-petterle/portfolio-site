@@ -55,16 +55,12 @@
       "type": "build"
     },
     {
-      "name": "pnpm",
-      "version": "^8.0",
-      "type": "build"
-    },
-    {
       "name": "prettier",
       "type": "build"
     },
     {
       "name": "projen",
+      "version": "0.80.19",
       "type": "build"
     },
     {
