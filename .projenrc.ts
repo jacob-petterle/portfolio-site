@@ -65,7 +65,8 @@ const project = new typescript.TypeScriptProject({
   autoMergeOptions: {},
   license: 'MIT',
   copyrightOwner: 'Jacob Petterle',
-  devDeps: ['prettier@^3.2'],
+  devDeps: ['prettier@^3.2', 'postcss@^8.4', 'tailwindcss@^3.4'],
+  deps: ['react@^18', 'react-dom@^18', 'next@^14.1'],
   packageManager: NodePackageManager.PNPM,
   pnpmVersion: '8.15.6',
   eslintOptions: {
