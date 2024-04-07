@@ -93,6 +93,7 @@ const project = new typescript.TypeScriptProject({
   testdir: 'tests',
   tsconfig: {
     compilerOptions: {
+      rootDir: '.',
       lib: ['dom', 'dom.iterable', 'esnext'],
       allowJs: true,
       skipLibCheck: true,

@@ -26,6 +26,7 @@
     "strictPropertyInitialization": true,
     "stripInternal": true,
     "target": "ES2019",
+    "rootDir": ".",
     "allowJs": true,
     "skipLibCheck": true,
     "noEmit": true,
