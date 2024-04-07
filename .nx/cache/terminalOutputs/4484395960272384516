@@ -1,0 +1,4 @@
+
+> name@0.0.0 lint /workspaces/typescript-template
+> eslint . --fix --max-warnings 0
+
