@@ -26,7 +26,7 @@
     "initializeCommand": "mkdir -p ${localEnv:HOME}${localEnv:USERPROFILE}/.ssh && mkdir -p ${localEnv:HOME}${localEnv:USERPROFILE}/.aws",
     // install deps when the container is updated or created
     "updateContentCommand": {
-        "install": "pnpm install"
+        "install": "projen"
     },
     "features": {
         // this is less performant, but couldn't get cdk synth working

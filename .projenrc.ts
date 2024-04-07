@@ -60,12 +60,14 @@ const project = new typescript.TypeScriptProject({
     filename: 'README.md',
     contents: README_TEMPLATE,
   },
+  projenVersion: '0.80.19',
   autoMerge: true,
   autoMergeOptions: {},
   license: 'MIT',
   copyrightOwner: 'Jacob Petterle',
-  devDeps: ['projen@^0.75', 'pnpm@^8.0', 'prettier@^3.2'],
+  devDeps: ['prettier@^3.2'],
   packageManager: NodePackageManager.PNPM,
+  pnpmVersion: '8.15.6',
   eslintOptions: {
     dirs: ['src'],
     prettier: true,
@@ -84,6 +86,6 @@ project.addScripts({
   lint: 'eslint . --fix --max-warnings 0',
 });
 
-project.gitignore.exclude('.pnpm-store/');
+project.gitignore.exclude('.pnpm-store/', '.nx/');
 
 project.synth();
