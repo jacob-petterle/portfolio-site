@@ -1,4 +1,4 @@
-import { typescript } from 'projen';
+import { typescript, JsonPatch } from 'projen';
 import {
   NodePackageManager,
   TypeScriptModuleResolution,
@@ -69,7 +69,13 @@ const project = new typescript.TypeScriptProject({
   autoMergeOptions: {},
   license: 'MIT',
   copyrightOwner: 'Jacob Petterle',
-  devDeps: ['prettier@^3.2', 'postcss@^8.4', 'tailwindcss@^3.4'],
+  devDeps: [
+    'prettier@^3.2',
+    'postcss@^8.4',
+    'tailwindcss@^3.4',
+    '@types/react@^18',
+    'autoprefixer@^10.4',
+  ],
   deps: ['react@^18', 'react-dom@^18', 'next@^14.1'],
   packageManager: NodePackageManager.PNPM,
   pnpmVersion: '8.15.6',
@@ -84,6 +90,7 @@ const project = new typescript.TypeScriptProject({
     },
   },
   jest: true,
+  testdir: 'tests',
   tsconfig: {
     compilerOptions: {
       lib: ['dom', 'dom.iterable', 'esnext'],
@@ -98,22 +105,24 @@ const project = new typescript.TypeScriptProject({
       isolatedModules: true,
       jsx: TypeScriptJsxMode.PRESERVE,
       incremental: true,
-      // plugins: [
-      //   {
-      //     name: 'next',
-      //   },
-      // ],
       paths: {
         '@/*': ['./src/*'],
       },
     },
-    include: ['next-env.d.ts', '**/*.ts', '**/*.tsx', '.next/types/**/*.ts'],
+    include: [
+      'next-env.d.ts',
+      'src/**/*.ts',
+      'src/**/*.tsx',
+      '.next/types/**/*.ts',
+    ],
     exclude: ['node_modules'],
   },
-  // projen uses this file, so we need to to pass an empty config
-  // so that it uses the default config instead of the production
-  // tsconfig above
-  tsconfigDev: {},
+  // projen uses the dev tsconfig when reading the the .projenrc.ts file,
+  tsconfigDev: {
+    compilerOptions: {
+      module: 'CommonJS',
+    },
+  },
 });
 
 project.addScripts({
@@ -124,6 +133,13 @@ project.addScripts({
   start: 'next start',
 });
 
-project.gitignore.exclude('.pnpm-store/', '.nx/');
+project.gitignore.exclude('.pnpm-store', '.nx', '.next');
+
+const tsConfig = project.tryFindObjectFile('tsconfig.json');
+if (tsConfig) {
+  tsConfig.patch(JsonPatch.add('/compilerOptions/plugins', [{ name: 'next' }]));
+} else {
+  throw new Error('Could not find tsconfig.json');
+}
 
 project.synth();

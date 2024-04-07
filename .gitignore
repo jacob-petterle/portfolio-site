@@ -43,13 +43,14 @@ junit.xml
 !/.prettierignore
 !/.prettierrc.json
 !/.npmrc
-!/test/
+!/tests/
 !/tsconfig.json
 !/tsconfig.dev.json
 !/src/
 /lib
 /dist/
 !/.eslintrc.json
-.pnpm-store/
-.nx/
+.pnpm-store
+.nx
+.next
 !/.projenrc.ts

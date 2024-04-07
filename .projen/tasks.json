@@ -108,7 +108,7 @@
       "description": "Runs eslint against the codebase",
       "steps": [
         {
-          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ src test build-tools projenrc .projenrc.ts",
+          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ src tests build-tools projenrc .projenrc.ts",
           "receiveArgs": true
         }
       ]
@@ -231,7 +231,7 @@
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit postcss prettier projen standard-version tailwindcss ts-jest ts-node typescript next react-dom react"
+          "exec": "pnpm update @types/jest @types/node @types/react @typescript-eslint/eslint-plugin @typescript-eslint/parser autoprefixer constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit postcss prettier projen standard-version tailwindcss ts-jest ts-node typescript next react-dom react"
         },
         {
           "exec": "npx projen"

@@ -10,6 +10,11 @@
       "type": "build"
     },
     {
+      "name": "@types/react",
+      "version": "^18",
+      "type": "build"
+    },
+    {
       "name": "@typescript-eslint/eslint-plugin",
       "version": "^6",
       "type": "build"
@@ -17,6 +22,11 @@
     {
       "name": "@typescript-eslint/parser",
       "version": "^6",
+      "type": "build"
+    },
+    {
+      "name": "autoprefixer",
+      "version": "^10.4",
       "type": "build"
     },
     {

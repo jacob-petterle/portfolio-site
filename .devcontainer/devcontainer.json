@@ -26,8 +26,10 @@
     "initializeCommand": "mkdir -p ${localEnv:HOME}${localEnv:USERPROFILE}/.ssh && mkdir -p ${localEnv:HOME}${localEnv:USERPROFILE}/.aws",
     // install deps when the container is updated or created
     "updateContentCommand": {
-        "install": "projen"
+        "install": "pnpm install",
+        "install-nextjs": "npm install -g next"
     },
+    "postStartCommand": "projen",
     "features": {
         // this is less performant, but couldn't get cdk synth working
         // when running docker outside of docker

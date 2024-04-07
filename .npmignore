@@ -9,7 +9,7 @@ permissions-backup.acl
 /.mergify.yml
 /.prettierignore
 /.prettierrc.json
-/test/
+/tests/
 /tsconfig.dev.json
 /src/
 !/lib/
