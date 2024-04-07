@@ -5,68 +5,12 @@ import {
   TypeScriptJsxMode,
 } from 'projen/lib/javascript';
 
-const README_TEMPLATE = `
-# Project Title
-
-A brief one or two sentence description of the project.
-
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Credits](#credits)
-- [License](#license)
-
-## Installation
-
-Step-by-step instructions on how to install and set up the project locally. This may include:
-
-- Prerequisites (e.g., Node.js version, package manager)
-- Cloning the repository
-- Installing dependencies
-- Setting up environment variables
-- Running a development server
-
-## Usage
-
-Instructions on how to use the project, including:
-
-- Main features and functionality
-- Examples or code snippets
-- Configuration options
-- Deployment instructions
-
-## Contributing
-
-Guidelines for contributing to the project, such as:
-
-- Reporting issues
-- Opening pull requests
-- Code style and conventions
-- Testing instructions
-
-## Credits
-
-List of contributors, resources, libraries, or assets used in the project.
-
-## License
-
-Information about the license under which the project is distributed.
-`;
-
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
   name: 'Portfolio Frontend',
-  description: 'Frontend app for Jacob Petterle\'s portfolio',
+  description: "Frontend app for Jacob Petterle's portfolio",
   projenrcTs: true,
-  readme: {
-    filename: 'README.md',
-    contents: README_TEMPLATE,
-  },
   projenVersion: '0.80.19',
-  autoMerge: true,
-  autoMergeOptions: {},
   license: 'MIT',
   copyrightOwner: 'Jacob Petterle',
   devDeps: [
@@ -106,7 +50,6 @@ const project = new typescript.TypeScriptProject({
       'src/**/*.tsx',
       '.next/types/**/*.ts',
     ],
-    exclude: ['node_modules'],
   },
   // projen uses the dev tsconfig when reading the the .projenrc.ts file,
   tsconfigDev: {
@@ -125,13 +68,26 @@ project.addScripts({
 });
 
 project.tryRemoveFile('.gitignore');
-project.try
+project.tryRemoveFile('.gitattributes');
+project.tryRemoveFile('.mergify.yml');
 
 const tsConfig = project.tryFindObjectFile('tsconfig.json');
 if (tsConfig) {
   tsConfig.patch(JsonPatch.add('/compilerOptions/plugins', [{ name: 'next' }]));
 } else {
   throw new Error('Could not find tsconfig.json');
+}
+
+// patch the eslint file to extend teh top level eslint.json config and add the parser option
+// to use the tsconfig in this directory
+const eslintConfig = project.tryFindObjectFile('.eslintrc.json');
+if (eslintConfig) {
+  eslintConfig.patch(JsonPatch.add('/extends', ['../.eslintrc.json']));
+  eslintConfig.patch(
+    JsonPatch.add('/parserOptions/project', './tsconfig.dev.json'),
+  );
+} else {
+  throw new Error('Could not find .eslintrc.json');
 }
 
 project.synth();

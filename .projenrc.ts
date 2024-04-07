@@ -14,6 +14,7 @@ const project = new typescript.TypeScriptProject({
   devDeps: ['eslint@9.0', 'nx@^18.2', 'typescript@^5.4'],
   packageManager: NodePackageManager.PNPM,
   pnpmVersion: '8.15.6',
+  disableTsconfig: true,
   eslintOptions: {
     dirs: ['**/*.ts', '**/*.tsx'],
     prettier: true,
