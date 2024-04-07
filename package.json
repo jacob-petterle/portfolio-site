@@ -2,7 +2,7 @@
   "name": "name",
   "description": "A cool typescript project",
   "scripts": {
-    "build": "npx projen build",
+    "build": "next build",
     "bump": "npx projen bump",
     "clobber": "npx projen clobber",
     "compile": "npx projen compile",
@@ -21,7 +21,9 @@
     "watch": "npx projen watch",
     "projen": "npx projen",
     "preinstall": "npx only-allow pnpm",
-    "lint": "eslint . --fix --max-warnings 0"
+    "lint": "eslint . --fix --max-warnings 0",
+    "dev": "next dev",
+    "start": "next start"
   },
   "devDependencies": {
     "@types/jest": "^29.5.10",

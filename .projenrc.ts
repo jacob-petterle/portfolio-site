@@ -1,5 +1,9 @@
 import { typescript } from 'projen';
-import { NodePackageManager } from 'projen/lib/javascript';
+import {
+  NodePackageManager,
+  TypeScriptModuleResolution,
+  TypeScriptJsxMode,
+} from 'projen/lib/javascript';
 
 const README_TEMPLATE = `
 # Project Title
@@ -80,11 +84,44 @@ const project = new typescript.TypeScriptProject({
     },
   },
   jest: true,
+  tsconfig: {
+    compilerOptions: {
+      lib: ['dom', 'dom.iterable', 'esnext'],
+      allowJs: true,
+      skipLibCheck: true,
+      strict: true,
+      noEmit: true,
+      esModuleInterop: true,
+      module: 'esnext',
+      moduleResolution: TypeScriptModuleResolution.BUNDLER,
+      resolveJsonModule: true,
+      isolatedModules: true,
+      jsx: TypeScriptJsxMode.PRESERVE,
+      incremental: true,
+      // plugins: [
+      //   {
+      //     name: 'next',
+      //   },
+      // ],
+      paths: {
+        '@/*': ['./src/*'],
+      },
+    },
+    include: ['next-env.d.ts', '**/*.ts', '**/*.tsx', '.next/types/**/*.ts'],
+    exclude: ['node_modules'],
+  },
+  // projen uses this file, so we need to to pass an empty config
+  // so that it uses the default config instead of the production
+  // tsconfig above
+  tsconfigDev: {},
 });
 
 project.addScripts({
   preinstall: 'npx only-allow pnpm',
   lint: 'eslint . --fix --max-warnings 0',
+  dev: 'next dev',
+  build: 'next build',
+  start: 'next start',
 });
 
 project.gitignore.exclude('.pnpm-store/', '.nx/');
