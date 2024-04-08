@@ -32,6 +32,7 @@ const project = new typescript.TypeScriptProject({
   prettierOptions: {
     settings: {
       singleQuote: true,
+      tabWidth: 2,
     },
   },
 });

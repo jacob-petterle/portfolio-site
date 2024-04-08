@@ -1,0 +1,20 @@
+{
+  "version": "36.0.0",
+  "files": {
+    "7c6b212e904700b3637e456439d1d3825f8c58c72d260160562868a890a2988a": {
+      "source": {
+        "path": "iac-dev.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "645860363137-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-645860363137-us-east-1",
+          "objectKey": "7c6b212e904700b3637e456439d1d3825f8c58c72d260160562868a890a2988a.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::645860363137:role/cdk-hnb659fds-file-publishing-role-645860363137-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

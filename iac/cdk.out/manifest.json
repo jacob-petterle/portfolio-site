@@ -1,0 +1,65 @@
+{
+  "version": "36.0.0",
+  "artifacts": {
+    "iac-dev.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "iac-dev.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "iac-dev": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://645860363137/us-east-1",
+      "properties": {
+        "templateFile": "iac-dev.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::645860363137:role/cdk-hnb659fds-deploy-role-645860363137-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::645860363137:role/cdk-hnb659fds-cfn-exec-role-645860363137-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-645860363137-us-east-1/7c6b212e904700b3637e456439d1d3825f8c58c72d260160562868a890a2988a.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "iac-dev.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::645860363137:role/cdk-hnb659fds-lookup-role-645860363137-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "iac-dev.assets"
+      ],
+      "metadata": {
+        "/iac-dev/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/iac-dev/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/iac-dev/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "iac-dev"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

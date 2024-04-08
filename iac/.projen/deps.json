@@ -10,11 +10,6 @@
       "type": "build"
     },
     {
-      "name": "@types/react",
-      "version": "^18",
-      "type": "build"
-    },
-    {
       "name": "@typescript-eslint/eslint-plugin",
       "version": "^6",
       "type": "build"
@@ -22,11 +17,6 @@
     {
       "name": "@typescript-eslint/parser",
       "version": "^6",
-      "type": "build"
-    },
-    {
-      "name": "autoprefixer",
-      "version": "^10.4",
       "type": "build"
     },
     {
@@ -61,23 +51,8 @@
       "type": "build"
     },
     {
-      "name": "postcss",
-      "version": "^8.4",
-      "type": "build"
-    },
-    {
-      "name": "prettier",
-      "version": "^3.2",
-      "type": "build"
-    },
-    {
       "name": "projen",
       "version": "0.80.19",
-      "type": "build"
-    },
-    {
-      "name": "tailwindcss",
-      "version": "^3.4",
       "type": "build"
     },
     {
@@ -93,6 +68,11 @@
       "type": "build"
     },
     {
+      "name": "@aws-cdk/aws-amplify-alpha",
+      "version": "2.39.1-alpha.0",
+      "type": "runtime"
+    },
+    {
       "name": "aws-cdk-lib",
       "version": "^2.136.0",
       "type": "runtime"
@@ -100,21 +80,6 @@
     {
       "name": "constructs",
       "version": "^10.0.5",
-      "type": "runtime"
-    },
-    {
-      "name": "next",
-      "version": "^14.1",
-      "type": "runtime"
-    },
-    {
-      "name": "react-dom",
-      "version": "^18",
-      "type": "runtime"
-    },
-    {
-      "name": "react",
-      "version": "^18",
       "type": "runtime"
     }
   ],
