@@ -9,7 +9,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   projenVersion: '0.80.19',
   license: 'MIT',
   copyrightOwner: 'Jacob Petterle',
-  deps: ['@aws-cdk/aws-amplify-alpha@2.39.1-alpha.0'],
+  deps: ['@aws-cdk/aws-amplify-alpha@2.136.0-alpha.0'],
   packageManager: NodePackageManager.PNPM,
   pnpmVersion: '8.15.6',
   jest: true,
@@ -34,7 +34,3 @@ if (eslintConfig) {
 }
 
 project.synth();
-
-// remove src directory forcefully using typescript file system
-const fs = require('fs');
-fs.rmdirSync('.github', { recursive: true });

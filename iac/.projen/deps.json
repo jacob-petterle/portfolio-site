@@ -69,7 +69,7 @@
     },
     {
       "name": "@aws-cdk/aws-amplify-alpha",
-      "version": "2.39.1-alpha.0",
+      "version": "2.136.0-alpha.0",
       "type": "runtime"
     },
     {
