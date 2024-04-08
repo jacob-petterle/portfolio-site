@@ -52,4 +52,5 @@ junit.xml
 .pnpm-store
 .nx
 .next
+**/**/cdk.out
 !/.projenrc.ts

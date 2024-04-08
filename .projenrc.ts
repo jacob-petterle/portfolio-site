@@ -37,7 +37,7 @@ const project = new typescript.TypeScriptProject({
   },
 });
 
-project.gitignore.exclude('.pnpm-store', '.nx', '.next');
+project.gitignore.exclude('.pnpm-store', '.nx', '.next', '**/**/cdk.out');
 
 const removeScripts = (
   scriptNames: string[],
