@@ -91,3 +91,7 @@ if (eslintConfig) {
 }
 
 project.synth();
+
+// remove src directory forcefully using typescript file system
+const fs = require('fs');
+fs.rmdirSync('.github', { recursive: true });
