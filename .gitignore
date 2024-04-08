@@ -43,8 +43,7 @@ junit.xml
 !/.prettierignore
 !/.prettierrc.json
 !/.npmrc
-!/tests/
-!/tsconfig.json
+!/./
 !/tsconfig.dev.json
 !/src/
 /lib
@@ -53,4 +52,5 @@ junit.xml
 .pnpm-store
 .nx
 .next
+**/**/cdk.out
 !/.projenrc.ts
