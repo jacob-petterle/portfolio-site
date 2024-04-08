@@ -43,7 +43,7 @@ junit.xml
 !/.prettierignore
 !/.prettierrc.json
 !/.npmrc
-!/test/
+!/./
 !/tsconfig.dev.json
 !/src/
 /lib
