@@ -2,21 +2,23 @@ import { App, GitHubSourceCodeProvider } from '@aws-cdk/aws-amplify-alpha';
 import { SecretValue, Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
-export type FrontendStackProps = StackProps & {
+export type WebAppProps = StackProps & {
   repoOwner: string;
   repoName: string;
-  oauthTokenSecretName?: string;
+  githubOauthTokenSecretName?: string;
+  basePath?: string;
 };
 
-const defaultFrontendStackProps = {
-  oauthTokenSecretName: 'github-oauth-token',
+const defaultWebAppProps = {
+  githubOauthTokenSecretName: 'github-oauth-token',
+  basePath: '/',
 };
 
-export class FrontendStack extends Stack {
+export class WebAppStack extends Stack {
   public app: App;
 
-  constructor(scope: Construct, id: string, props: FrontendStackProps) {
-    const mergedProps = { ...defaultFrontendStackProps, ...props };
+  constructor(scope: Construct, id: string, props: WebAppProps) {
+    const mergedProps = { ...defaultWebAppProps, ...props };
     super(scope, id, props);
 
     this.app = new App(this, 'amplify-frontend', {
@@ -24,15 +26,19 @@ export class FrontendStack extends Stack {
       sourceCodeProvider: new GitHubSourceCodeProvider({
         owner: mergedProps.repoOwner,
         repository: mergedProps.repoName,
-        // oauthToken: mergedProps.oauthTokenSecretName,
         oauthToken: SecretValue.secretsManager(
-          mergedProps.oauthTokenSecretName,
+          mergedProps.githubOauthTokenSecretName,
         ),
       }),
       autoBranchCreation: {
         patterns: ['main'],
       },
       autoBranchDeletion: true,
+      environmentVariables: {
+        AMPLIFY_MONOREPO_APP_ROOT: mergedProps.basePath,
+        AMPLIFY_DIFF_DEPLOY: 'true',
+        AMPLIFY_DIFF_DEPLOY_ROOT: mergedProps.basePath + '/dist',
+      },
     });
   }
 }
