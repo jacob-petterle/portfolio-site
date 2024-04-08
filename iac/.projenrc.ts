@@ -1,12 +1,10 @@
-import { awscdk, JsonPatch } from "projen";
-import {
-  NodePackageManager,
-} from 'projen/lib/javascript';
+import { awscdk, JsonPatch } from 'projen';
+import { NodePackageManager } from 'projen/lib/javascript';
 
 const project = new awscdk.AwsCdkTypeScriptApp({
-  cdkVersion: "2.136.0",
-  defaultReleaseBranch: "main",
-  name: "Portfolio site IAC",
+  cdkVersion: '2.136.0',
+  defaultReleaseBranch: 'main',
+  name: 'Portfolio site IAC',
   projenrcTs: true,
   projenVersion: '0.80.19',
   license: 'MIT',
@@ -35,7 +33,8 @@ const eslintConfig = project.tryFindObjectFile('.eslintrc.json');
 if (eslintConfig) {
   eslintConfig.patch(JsonPatch.add('/extends', ['../.eslintrc.json']));
   eslintConfig.patch(
-    JsonPatch.add('/parserOptions/project', './tsconfig.dev.json'),
+    // not sure why we need to go from the root here, but it works
+    JsonPatch.add('/parserOptions/project', './iac/tsconfig.dev.json'),
   );
 } else {
   throw new Error('Could not find .eslintrc.json');
