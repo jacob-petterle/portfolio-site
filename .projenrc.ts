@@ -38,6 +38,36 @@ const project = new typescript.TypeScriptProject({
 
 project.gitignore.exclude('.pnpm-store', '.nx', '.next');
 
+const removeScripts = (
+  scriptNames: string[],
+  proj: typescript.TypeScriptProject,
+) => {
+  scriptNames.forEach((scriptName) => {
+    proj.removeScript(scriptName);
+  });
+};
+const scriptsToRemove = [
+  'build',
+  'bump',
+  'clobber',
+  'compile',
+  'default',
+  'eject',
+  'eslint',
+  'package',
+  'post-compile',
+  'post-upgrade',
+  'pre-compile',
+  'release',
+  'test',
+  'test:watch',
+  'unbump',
+  'upgrade',
+  'watch',
+  'projen',
+];
+removeScripts(scriptsToRemove, project);
+
 project.synth();
 // remove src directory forcefully using typescript file system
 const fs = require('fs');
