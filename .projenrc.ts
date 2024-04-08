@@ -12,7 +12,14 @@ const project = new typescript.TypeScriptProject({
   testdir: '.', // we don't have tests in the top level
   license: 'MIT',
   copyrightOwner: 'Jacob Petterle',
-  devDeps: ['eslint@9.0', 'nx@^18.2', 'typescript@^5.4'],
+  devDeps: [
+    'eslint@9.0',
+    'nx@^18.2',
+    'typescript@^5.4',
+    '@nx/eslint@^18.2',
+    '@nx/jest@^18.2',
+    '@nx/next@^18.2',
+  ],
   packageManager: NodePackageManager.PNPM,
   github: true,
   pnpmVersion: '8.15.6',
@@ -68,6 +75,12 @@ const scriptsToRemove = [
   'projen',
 ];
 removeScripts(scriptsToRemove, project);
+
+project.addScripts({
+  projen: 'nx run-many --target=projen --all',
+  lint: 'nx run-many --target=lint --all',
+  typecheck: 'nx run-many --target=typecheck --all',
+});
 
 project.synth();
 // remove src directory forcefully using typescript file system

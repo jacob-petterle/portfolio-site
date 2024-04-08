@@ -21,7 +21,7 @@
     "watch": "npx projen watch",
     "projen": "npx projen",
     "preinstall": "npx only-allow pnpm",
-    "lint": "eslint . --fix --max-warnings 0",
+    "lint": "nx lint --fix --max-warnings 0",
     "dev": "next dev",
     "start": "next start"
   },

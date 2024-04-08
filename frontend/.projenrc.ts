@@ -61,7 +61,7 @@ const project = new typescript.TypeScriptProject({
 
 project.addScripts({
   preinstall: 'npx only-allow pnpm',
-  lint: 'eslint . --fix --max-warnings 0',
+  lint: 'nx lint --fix --max-warnings 0',
   dev: 'next dev',
   build: 'next build',
   start: 'next start',

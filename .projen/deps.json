@@ -1,6 +1,21 @@
 {
   "dependencies": [
     {
+      "name": "@nx/eslint",
+      "version": "^18.2",
+      "type": "build"
+    },
+    {
+      "name": "@nx/jest",
+      "version": "^18.2",
+      "type": "build"
+    },
+    {
+      "name": "@nx/next",
+      "version": "^18.2",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },

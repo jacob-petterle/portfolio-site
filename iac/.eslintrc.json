@@ -13,7 +13,7 @@
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
-    "project": "./iac/tsconfig.dev.json"
+    "project": "./tsconfig.dev.json"
   },
   "extends": [
     "../.eslintrc.json"

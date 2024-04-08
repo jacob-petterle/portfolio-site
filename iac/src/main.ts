@@ -16,5 +16,4 @@ new WebAppStack(app, 'portfolio-stack', {
   githubOauthTokenSecretName: 'github-oauth-token',
   basePath: 'frontend',
 });
-
 app.synth();

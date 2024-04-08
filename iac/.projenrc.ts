@@ -27,7 +27,7 @@ if (eslintConfig) {
   eslintConfig.patch(JsonPatch.add('/extends', ['../.eslintrc.json']));
   eslintConfig.patch(
     // not sure why we need to go from the root here, but it works
-    JsonPatch.add('/parserOptions/project', './iac/tsconfig.dev.json'),
+    JsonPatch.add('/parserOptions/project', './tsconfig.dev.json'),
   );
 } else {
   throw new Error('Could not find .eslintrc.json');
