@@ -95,8 +95,8 @@ project.addScripts({
   dev: 'next dev',
   build: 'next build',
   start: 'next start',
-  typecheck: 'tsc --noEmit -p tsconfig.json',
-  lint: 'eslint . --fix',
+  typecheck: 'npx tsc --noEmit -p tsconfig.json',
+  lint: 'npx eslint --fix "**/*.{js,jsx,ts,tsx}"',
 });
 
 project.tryRemoveFile('.gitignore');
@@ -104,6 +104,10 @@ project.tryRemoveFile('.gitattributes');
 project.tryRemoveFile('.mergify.yml');
 
 project.npmrc.addConfig('public-hoist-pattern[]', '*@nextui-org/*');
+
+project.eslint?.addRules({
+  'quote-props': 'off',
+});
 
 const tsConfig = project.tryFindObjectFile('tsconfig.json');
 if (tsConfig) {

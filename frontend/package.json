@@ -23,8 +23,8 @@
     "preinstall": "npx only-allow pnpm",
     "dev": "next dev",
     "start": "next start",
-    "typecheck": "tsc --noEmit -p tsconfig.json",
-    "lint": "eslint . --fix"
+    "typecheck": "npx tsc --noEmit -p tsconfig.json",
+    "lint": "npx eslint --fix \"**/*.{js,jsx,ts,tsx}\""
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

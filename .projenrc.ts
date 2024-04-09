@@ -82,10 +82,10 @@ removeScripts(scriptsToRemove, project);
 
 project.addScripts({
   projen: 'nx run-many --target=projen --all && projen',
-  lint: 'nx run-many --target=lint --all && eslint .projenrc.ts --fix',
+  lint: 'nx run-many --target=lint --all && npx eslint .projenrc.ts --fix',
   build: 'nx run-many --target=build --all',
   typecheck:
-    'nx run-many --target=typecheck --all && tsc --noEmit -p tsconfig.dev.json',
+    'nx run-many --target=typecheck --all && npx tsc --noEmit -p tsconfig.dev.json',
   package: 'nx run-many --target=package --all',
 });
 
