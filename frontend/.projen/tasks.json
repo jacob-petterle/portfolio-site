@@ -231,7 +231,7 @@
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @types/jest @types/node @types/react @typescript-eslint/eslint-plugin @typescript-eslint/parser autoprefixer constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit postcss prettier projen standard-version tailwindcss ts-jest ts-node typescript next react-dom react"
+          "exec": "pnpm update @types/jest @types/node @types/react @typescript-eslint/eslint-plugin @typescript-eslint/parser autoprefixer constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit postcss prettier projen standard-version tailwindcss ts-jest ts-node typescript @nextui-org/button @nextui-org/code @nextui-org/input @nextui-org/kbd @nextui-org/link @nextui-org/navbar @nextui-org/snippet @nextui-org/switch @nextui-org/system @nextui-org/theme @react-aria/ssr @react-aria/visually-hidden @types/react-dom clsx eslint-config-next framer-motion intl-messageformat next-themes next react-dom react tailwind-variants"
         },
         {
           "exec": "npx projen"

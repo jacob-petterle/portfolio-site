@@ -94,8 +94,123 @@
       "type": "build"
     },
     {
+      "name": "@nextui-org/button",
+      "version": "^2",
+      "type": "runtime"
+    },
+    {
+      "name": "@nextui-org/code",
+      "version": "^2",
+      "type": "runtime"
+    },
+    {
+      "name": "@nextui-org/input",
+      "version": "^2",
+      "type": "runtime"
+    },
+    {
+      "name": "@nextui-org/kbd",
+      "version": "^2",
+      "type": "runtime"
+    },
+    {
+      "name": "@nextui-org/link",
+      "version": "^2",
+      "type": "runtime"
+    },
+    {
+      "name": "@nextui-org/navbar",
+      "version": "^2",
+      "type": "runtime"
+    },
+    {
+      "name": "@nextui-org/snippet",
+      "version": "^2",
+      "type": "runtime"
+    },
+    {
+      "name": "@nextui-org/switch",
+      "version": "^2",
+      "type": "runtime"
+    },
+    {
+      "name": "@nextui-org/system",
+      "version": "^2",
+      "type": "runtime"
+    },
+    {
+      "name": "@nextui-org/theme",
+      "version": "^2",
+      "type": "runtime"
+    },
+    {
+      "name": "@react-aria/ssr",
+      "version": "^3.8",
+      "type": "runtime"
+    },
+    {
+      "name": "@react-aria/visually-hidden",
+      "version": "^3.8",
+      "type": "runtime"
+    },
+    {
+      "name": "@types/node",
+      "version": "^20",
+      "type": "runtime"
+    },
+    {
+      "name": "@types/react-dom",
+      "version": "^18",
+      "type": "runtime"
+    },
+    {
+      "name": "@types/react",
+      "version": "^18",
+      "type": "runtime"
+    },
+    {
+      "name": "autoprefixer",
+      "version": "^10.4",
+      "type": "runtime"
+    },
+    {
+      "name": "clsx",
+      "version": "^2",
+      "type": "runtime"
+    },
+    {
+      "name": "eslint-config-next",
+      "version": "^14",
+      "type": "runtime"
+    },
+    {
+      "name": "eslint",
+      "version": "^8",
+      "type": "runtime"
+    },
+    {
+      "name": "framer-motion",
+      "version": "^10.16",
+      "type": "runtime"
+    },
+    {
+      "name": "intl-messageformat",
+      "version": "^10.5",
+      "type": "runtime"
+    },
+    {
+      "name": "next-themes",
+      "version": "^0.2",
+      "type": "runtime"
+    },
+    {
       "name": "next",
       "version": "^14.1",
+      "type": "runtime"
+    },
+    {
+      "name": "postcss",
+      "version": "^8.4",
       "type": "runtime"
     },
     {
@@ -106,6 +221,21 @@
     {
       "name": "react",
       "version": "^18",
+      "type": "runtime"
+    },
+    {
+      "name": "tailwind-variants",
+      "version": "^0.1",
+      "type": "runtime"
+    },
+    {
+      "name": "tailwindcss",
+      "version": "^3.3",
+      "type": "runtime"
+    },
+    {
+      "name": "typescript",
+      "version": "^5",
       "type": "runtime"
     }
   ],
