@@ -18,6 +18,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
 
 project.addScripts({
   typecheck: 'tsc --noEmit -p tsconfig.json',
+  lint: 'eslint . --fix',
 });
 
 project.tryRemoveFile('.gitignore');

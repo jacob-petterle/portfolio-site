@@ -5,7 +5,7 @@ import {
   TypeScriptJsxMode,
 } from 'projen/lib/javascript';
 
-const project = new typescript.Typ({
+const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
   name: '@portfolio/frontend',
   description: "Frontend app for Jacob Petterle's portfolio",
@@ -65,6 +65,7 @@ project.addScripts({
   build: 'next build',
   start: 'next start',
   typecheck: 'tsc --noEmit -p tsconfig.json',
+  lint: 'eslint . --fix',
 });
 
 project.tryRemoveFile('.gitignore');
