@@ -88,6 +88,10 @@ project.addScripts({
     'nx run-many --target=typecheck --all && tsc --noEmit -p tsconfig.dev.json',
 });
 
+project.compileTask.updateStep(0, {
+  exec: 'pnpm run build',
+});
+
 project.synth();
 // remove src directory forcefully using typescript file system
 const fs = require('fs');
