@@ -100,6 +100,8 @@ project.testTask.updateStep(1, {
 
 project.packageTask.reset('pnpm package');
 
+project.npmrc.addConfig('node-linker', 'hoisted');
+
 project.synth();
 // remove src directory forcefully using typescript file system
 const fs = require('fs');
