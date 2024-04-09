@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "amplifyfrontend682F523E": {
+      "Properties": {
+        "AutoBranchCreationConfig": {
+          "BasicAuthConfig": {
+            "EnableBasicAuth": false,
+          },
+          "EnableAutoBranchCreation": true,
+          "EnableAutoBuild": true,
+          "EnablePullRequestPreview": true,
+        },
+        "BasicAuthConfig": {
+          "EnableBasicAuth": false,
+        },
+        "BuildSpec": "version: "1.0"
+applications:
+  - appRoot: /
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm install -g pnpm
+            - pnpm install
+        build:
+          commands:
+            - pnpm run build
+      artifacts:
+        baseDirectory: .next
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - node_modules/**/*
+",
+        "EnableBranchAutoDeletion": true,
+        "EnvironmentVariables": [
+          {
+            "Name": "AMPLIFY_MONOREPO_APP_ROOT",
+            "Value": "/",
+          },
+          {
+            "Name": "AMPLIFY_DIFF_DEPLOY",
+            "Value": "true",
+          },
+          {
+            "Name": "AMPLIFY_DIFF_DEPLOY_ROOT",
+            "Value": "//.next",
+          },
+        ],
+        "IAMServiceRole": {
+          "Fn::GetAtt": [
+            "amplifyfrontendRole6E3580D5",
+            "Arn",
+          ],
+        },
+        "Name": "portfolio-site",
+        "OauthToken": "{{resolve:secretsmanager:github-oauth-token:SecretString:::}}",
+        "Platform": "WEB_COMPUTE",
+        "Repository": "https://github.com/test/test",
+      },
+      "Type": "AWS::Amplify::App",
+    },
+    "amplifyfrontendRole6E3580D5": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "amplify.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "amplifyfrontendmainC3F78C4E": {
+      "Properties": {
+        "AppId": {
+          "Fn::GetAtt": [
+            "amplifyfrontend682F523E",
+            "AppId",
+          ],
+        },
+        "BranchName": "main",
+        "EnableAutoBuild": true,
+        "EnablePullRequestPreview": true,
+      },
+      "Type": "AWS::Amplify::Branch",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
