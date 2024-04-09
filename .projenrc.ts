@@ -88,6 +88,7 @@ project.addScripts({
     'nx run-many --target=typecheck --all && npx tsc --noEmit -p tsconfig.dev.json',
   package: 'nx run-many --target=package --all',
   test: 'nx run-many --target=test --all',
+  frontend: 'nx dev @portfolio/frontend',
 });
 
 project.compileTask.updateStep(0, {
