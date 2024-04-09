@@ -24,6 +24,7 @@ const project = new typescript.TypeScriptProject({
   packageManager: NodePackageManager.PNPM,
   github: true,
   pnpmVersion: '8.15.6',
+  disableTsconfig: true,
   eslintOptions: {
     dirs: ['.'],
     prettier: true,
@@ -82,6 +83,7 @@ removeScripts(scriptsToRemove, project);
 project.addScripts({
   projen: 'nx run-many --target=projen --all && projen',
   lint: 'nx run-many --target=lint --all && eslint .projenrc.ts --fix',
+  build: 'nx run-many --target=build --all',
   typecheck:
     'nx run-many --target=typecheck --all && tsc --noEmit -p tsconfig.dev.json',
 });

@@ -4,6 +4,7 @@
   "scripts": {
     "projen": "nx run-many --target=projen --all && projen",
     "lint": "nx run-many --target=lint --all && eslint .projenrc.ts --fix",
+    "build": "nx run-many --target=build --all",
     "typecheck": "nx run-many --target=typecheck --all && tsc --noEmit -p tsconfig.dev.json"
   },
   "devDependencies": {

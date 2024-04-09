@@ -1,4 +1,8 @@
-import { App, GitHubSourceCodeProvider, Platform } from '@aws-cdk/aws-amplify-alpha';
+import {
+  App,
+  GitHubSourceCodeProvider,
+  Platform,
+} from '@aws-cdk/aws-amplify-alpha';
 import { SecretValue, Stack, StackProps } from 'aws-cdk-lib';
 import * as codebuild from 'aws-cdk-lib/aws-codebuild';
 import { Construct } from 'constructs';
