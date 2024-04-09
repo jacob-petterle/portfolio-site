@@ -78,7 +78,8 @@
         "fabiospampinato.vscode-highlight",
         "esbenp.prettier-vscode",
         "searKing.preview-vscode",
-        "MatthewNespor.vscode-color-identifiers-mode"
+        "MatthewNespor.vscode-color-identifiers-mode",
+        "nrwl.angular-console"
       ],
       "settings": {
         "git.enableSmartCommit": true,

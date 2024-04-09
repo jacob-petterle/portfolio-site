@@ -24,5 +24,16 @@
       }
     }
   ],
+  "targetDefaults": {
+    "build": {
+      "cache": true
+    },
+    "package": {
+      "cache": true
+    },
+    "typecheck": {
+      "cache": true
+    }
+  },
   "nxCloudAccessToken": "OWYyYjkwMzgtYzQwYS00Zjg2LWJlMGMtNmE4N2E2ODE3OGIyfHJlYWQtd3JpdGU="
 }

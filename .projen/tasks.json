@@ -136,10 +136,7 @@
       "description": "Creates the distribution package",
       "steps": [
         {
-          "exec": "mkdir -p dist/js"
-        },
-        {
-          "exec": "mv $(pnpm pack) dist/js/"
+          "exec": "pnpm package"
         }
       ]
     },
@@ -188,7 +185,7 @@
           "receiveArgs": true
         },
         {
-          "spawn": "eslint"
+          "exec": "pnpm lint"
         }
       ]
     },
