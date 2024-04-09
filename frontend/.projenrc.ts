@@ -103,6 +103,8 @@ project.tryRemoveFile('.gitignore');
 project.tryRemoveFile('.gitattributes');
 project.tryRemoveFile('.mergify.yml');
 
+project.npmrc.addConfig('public-hoist-pattern[]', '*@nextui-org/*');
+
 const tsConfig = project.tryFindObjectFile('tsconfig.json');
 if (tsConfig) {
   tsConfig.patch(JsonPatch.add('/compilerOptions/plugins', [{ name: 'next' }]));
