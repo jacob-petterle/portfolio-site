@@ -24,7 +24,6 @@ const project = new typescript.TypeScriptProject({
   packageManager: NodePackageManager.PNPM,
   github: true,
   pnpmVersion: '8.15.6',
-  disableTsconfig: true,
   eslintOptions: {
     dirs: ['.'],
     prettier: true,
