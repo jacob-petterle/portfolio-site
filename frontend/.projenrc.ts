@@ -5,7 +5,7 @@ import {
   TypeScriptJsxMode,
 } from 'projen/lib/javascript';
 
-const project = new typescript.TypeScriptProject({
+const project = new typescript.Typ({
   defaultReleaseBranch: 'main',
   name: '@portfolio/frontend',
   description: "Frontend app for Jacob Petterle's portfolio",
