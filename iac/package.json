@@ -1,5 +1,5 @@
 {
-  "name": "Portfolio site IAC",
+  "name": "@portfolio/iac",
   "scripts": {
     "build": "npx projen build",
     "bundle": "npx projen bundle",
@@ -21,7 +21,8 @@
     "test:watch": "npx projen test:watch",
     "upgrade": "npx projen upgrade",
     "watch": "npx projen watch",
-    "projen": "npx projen"
+    "projen": "npx projen",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
@@ -41,7 +42,7 @@
     "typescript": "^5.4.4"
   },
   "dependencies": {
-    "@aws-cdk/aws-amplify-alpha": "2.39.1-alpha.0",
+    "@aws-cdk/aws-amplify-alpha": "2.136.0-alpha.0",
     "aws-cdk-lib": "^2.136.0",
     "constructs": "^10.0.5"
   },

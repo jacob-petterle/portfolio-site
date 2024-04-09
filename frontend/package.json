@@ -1,5 +1,5 @@
 {
-  "name": "Portfolio Frontend",
+  "name": "@portfolio/frontend",
   "description": "Frontend app for Jacob Petterle's portfolio",
   "scripts": {
     "build": "next build",
@@ -21,9 +21,9 @@
     "watch": "npx projen watch",
     "projen": "npx projen",
     "preinstall": "npx only-allow pnpm",
-    "lint": "eslint . --fix --max-warnings 0",
     "dev": "next dev",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

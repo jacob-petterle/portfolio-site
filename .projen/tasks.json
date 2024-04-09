@@ -78,7 +78,7 @@
       "description": "Only compile",
       "steps": [
         {
-          "exec": "tsc --build"
+          "exec": "pnpm run build"
         }
       ]
     },
@@ -108,7 +108,7 @@
       "description": "Runs eslint against the codebase",
       "steps": [
         {
-          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ **/*.ts **/*.tsx . build-tools projenrc .projenrc.ts",
+          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ . build-tools projenrc .projenrc.ts",
           "receiveArgs": true
         }
       ]
@@ -136,10 +136,7 @@
       "description": "Creates the distribution package",
       "steps": [
         {
-          "exec": "mkdir -p dist/js"
-        },
-        {
-          "exec": "mv $(pnpm pack) dist/js/"
+          "exec": "pnpm package"
         }
       ]
     },
@@ -188,7 +185,7 @@
           "receiveArgs": true
         },
         {
-          "spawn": "eslint"
+          "exec": "pnpm lint"
         }
       ]
     },
@@ -231,7 +228,7 @@
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit nx prettier projen standard-version ts-jest ts-node typescript"
+          "exec": "pnpm update @nx/eslint @nx/jest @nx/next @nx/plugin @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser constructs eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit nx prettier projen standard-version ts-jest ts-node typescript"
         },
         {
           "exec": "npx projen"

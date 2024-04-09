@@ -7,7 +7,7 @@ import {
 
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
-  name: 'Portfolio Frontend',
+  name: '@portfolio/frontend',
   description: "Frontend app for Jacob Petterle's portfolio",
   projenrcTs: true,
   projenVersion: '0.80.19',
@@ -61,10 +61,10 @@ const project = new typescript.TypeScriptProject({
 
 project.addScripts({
   preinstall: 'npx only-allow pnpm',
-  lint: 'eslint . --fix --max-warnings 0',
   dev: 'next dev',
   build: 'next build',
   start: 'next start',
+  typecheck: 'tsc --noEmit -p tsconfig.json',
 });
 
 project.tryRemoveFile('.gitignore');

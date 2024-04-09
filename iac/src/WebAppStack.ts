@@ -1,4 +1,8 @@
-import { App, GitHubSourceCodeProvider } from '@aws-cdk/aws-amplify-alpha';
+import {
+  App,
+  GitHubSourceCodeProvider,
+  Platform,
+} from '@aws-cdk/aws-amplify-alpha';
 import { SecretValue, Stack, StackProps } from 'aws-cdk-lib';
 import * as codebuild from 'aws-cdk-lib/aws-codebuild';
 import { Construct } from 'constructs';
@@ -24,25 +28,31 @@ export class WebAppStack extends Stack {
 
     this.app = new App(this, 'amplify-frontend', {
       appName: 'portfolio-site',
-      buildSpec: codebuild.BuildSpec.fromObject({
+      platform: Platform.WEB_COMPUTE,
+      buildSpec: codebuild.BuildSpec.fromObjectToYaml({
         version: '1.0',
-        frontend: {
-          phases: {
-            preBuild: {
-              commands: ['pnpm install'],
+        applications: [
+          {
+            appRoot: mergedProps.basePath,
+            frontend: {
+              phases: {
+                preBuild: {
+                  commands: ['npm install -g pnpm', 'pnpm install'],
+                },
+                build: {
+                  commands: ['pnpm run build'],
+                },
+              },
+              artifacts: {
+                baseDirectory: '.next',
+                files: ['**/*'],
+              },
+              cache: {
+                paths: ['node_modules/**/*'],
+              },
             },
-            build: {
-              commands: ['pnpm run build'],
-            },
           },
-          artifacts: {
-            baseDirectory: '.next',
-            files: ['**/*'],
-          },
-          cache: {
-            paths: ['node_modules/**/*'],
-          },
-        },
+        ],
       }),
       sourceCodeProvider: new GitHubSourceCodeProvider({
         owner: mergedProps.repoOwner,
@@ -60,6 +70,10 @@ export class WebAppStack extends Stack {
         AMPLIFY_DIFF_DEPLOY: 'true',
         AMPLIFY_DIFF_DEPLOY_ROOT: mergedProps.basePath + '/.next',
       },
+    });
+
+    this.app.addBranch('main', {
+      branchName: 'main',
     });
   }
 }

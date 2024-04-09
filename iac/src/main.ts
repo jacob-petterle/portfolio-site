@@ -14,7 +14,6 @@ new WebAppStack(app, 'portfolio-stack', {
   repoOwner: 'jacob-petterle',
   repoName: 'portfolio-site',
   githubOauthTokenSecretName: 'github-oauth-token',
-  basePath: 'portfolio-site/frontend',
+  basePath: 'frontend',
 });
-
 app.synth();

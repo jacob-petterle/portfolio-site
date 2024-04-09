@@ -1,8 +1,18 @@
 {
-  "name": "Portfolio Site for Jacob Petterle",
+  "name": "@portfolio/web-app",
   "description": "My personal portfolio site",
-  "scripts": {},
+  "scripts": {
+    "projen": "nx run-many --target=projen --all && projen",
+    "lint": "nx run-many --target=lint --all && eslint .projenrc.ts --fix",
+    "build": "nx run-many --target=build --all",
+    "typecheck": "nx run-many --target=typecheck --all && tsc --noEmit -p tsconfig.dev.json",
+    "package": "nx run-many --target=package --all"
+  },
   "devDependencies": {
+    "@nx/eslint": "^18.2",
+    "@nx/jest": "^18.2",
+    "@nx/next": "^18.2",
+    "@nx/plugin": "^18.2",
     "@types/jest": "^29.5.10",
     "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^6",
