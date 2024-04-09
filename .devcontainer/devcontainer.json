@@ -79,7 +79,8 @@
         "esbenp.prettier-vscode",
         "searKing.preview-vscode",
         "MatthewNespor.vscode-color-identifiers-mode",
-        "nrwl.angular-console"
+        "nrwl.angular-console",
+        "bradlc.vscode-tailwindcss"
       ],
       "settings": {
         "git.enableSmartCommit": true,

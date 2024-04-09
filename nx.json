@@ -33,6 +33,12 @@
     },
     "typecheck": {
       "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "test": {
+      "cache": true
     }
   },
   "nxCloudAccessToken": "OWYyYjkwMzgtYzQwYS00Zjg2LWJlMGMtNmE4N2E2ODE3OGIyfHJlYWQtd3JpdGU="

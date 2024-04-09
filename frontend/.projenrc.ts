@@ -20,7 +20,37 @@ const project = new typescript.TypeScriptProject({
     '@types/react@^18',
     'autoprefixer@^10.4',
   ],
-  deps: ['react@^18', 'react-dom@^18', 'next@^14.1'],
+  deps: [
+    'react@^18',
+    'react-dom@^18',
+    'next@^14.1',
+    '@nextui-org/button@^2',
+    '@nextui-org/code@^2',
+    '@nextui-org/input@^2',
+    '@nextui-org/kbd@^2',
+    '@nextui-org/link@^2',
+    '@nextui-org/navbar@^2',
+    '@nextui-org/snippet@^2',
+    '@nextui-org/switch@^2',
+    '@nextui-org/system@^2',
+    '@nextui-org/theme@^2',
+    '@react-aria/ssr@^3.8',
+    '@react-aria/visually-hidden@^3.8',
+    '@types/node@^20',
+    '@types/react@^18',
+    '@types/react-dom@^18',
+    'autoprefixer@^10.4',
+    'clsx@^2',
+    'eslint@^8',
+    'eslint-config-next@^14',
+    'framer-motion@^10.16',
+    'intl-messageformat@^10.5',
+    'next-themes@^0.2',
+    'postcss@^8.4',
+    'tailwind-variants@^0.1',
+    'tailwindcss@^3.3',
+    'typescript@^5',
+  ],
   packageManager: NodePackageManager.PNPM,
   pnpmVersion: '8.15.6',
   jest: true,
@@ -56,6 +86,7 @@ const project = new typescript.TypeScriptProject({
     compilerOptions: {
       module: 'CommonJS',
     },
+    include: ['tailwind.config.ts'],
   },
 });
 
@@ -64,12 +95,19 @@ project.addScripts({
   dev: 'next dev',
   build: 'next build',
   start: 'next start',
-  typecheck: 'tsc --noEmit -p tsconfig.json',
+  typecheck: 'npx tsc --noEmit -p tsconfig.json',
+  lint: 'npx eslint --fix "**/*.{js,jsx,ts,tsx}"',
 });
 
 project.tryRemoveFile('.gitignore');
 project.tryRemoveFile('.gitattributes');
 project.tryRemoveFile('.mergify.yml');
+
+project.npmrc.addConfig('public-hoist-pattern[]', '*@nextui-org/*');
+
+project.eslint?.addRules({
+  'quote-props': 'off',
+});
 
 const tsConfig = project.tryFindObjectFile('tsconfig.json');
 if (tsConfig) {

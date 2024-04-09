@@ -47,6 +47,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     ".next/types/**/*.ts",
+    "tailwind.config.ts",
     ".projenrc.ts",
     "projenrc/**/*.ts"
   ],
