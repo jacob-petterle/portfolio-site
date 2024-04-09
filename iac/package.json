@@ -1,5 +1,5 @@
 {
-  "name": "Portfolio site IAC",
+  "name": "@portfolio/iac",
   "scripts": {
     "build": "npx projen build",
     "bundle": "npx projen bundle",
@@ -21,7 +21,8 @@
     "test:watch": "npx projen test:watch",
     "upgrade": "npx projen upgrade",
     "watch": "npx projen watch",
-    "projen": "npx projen"
+    "projen": "npx projen",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

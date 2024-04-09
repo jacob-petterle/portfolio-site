@@ -4,7 +4,7 @@ import { NodePackageManager } from 'projen/lib/javascript';
 const project = new awscdk.AwsCdkTypeScriptApp({
   cdkVersion: '2.136.0',
   defaultReleaseBranch: 'main',
-  name: 'Portfolio site IAC',
+  name: '@portfolio/iac',
   projenrcTs: true,
   projenVersion: '0.80.19',
   license: 'MIT',
@@ -14,6 +14,10 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   pnpmVersion: '8.15.6',
   jest: true,
   testdir: 'tests',
+});
+
+project.addScripts({
+  typecheck: 'tsc --noEmit -p tsconfig.json',
 });
 
 project.tryRemoveFile('.gitignore');

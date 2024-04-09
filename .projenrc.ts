@@ -3,7 +3,7 @@ import { NodePackageManager } from 'projen/lib/javascript';
 
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
-  name: 'Portfolio Site for Jacob Petterle',
+  name: '@portfolio/web-app',
   description: 'My personal portfolio site',
   projenrcTs: true,
   projenVersion: '0.80.19',
@@ -19,13 +19,14 @@ const project = new typescript.TypeScriptProject({
     '@nx/eslint@^18.2',
     '@nx/jest@^18.2',
     '@nx/next@^18.2',
+    '@nx/plugin@^18.2',
   ],
   packageManager: NodePackageManager.PNPM,
   github: true,
   pnpmVersion: '8.15.6',
   disableTsconfig: true,
   eslintOptions: {
-    dirs: ['**/*.ts', '**/*.tsx'],
+    dirs: ['.'],
     prettier: true,
     ignorePatterns: [
       '*.js',
@@ -34,6 +35,9 @@ const project = new typescript.TypeScriptProject({
       '*.generated.ts',
       'coverage',
     ],
+  },
+  tsconfigDev: {
+    include: [],
   },
   prettier: true,
   prettierOptions: {
@@ -77,9 +81,10 @@ const scriptsToRemove = [
 removeScripts(scriptsToRemove, project);
 
 project.addScripts({
-  projen: 'nx run-many --target=projen --all',
-  lint: 'nx run-many --target=lint --all',
-  typecheck: 'nx run-many --target=typecheck --all',
+  projen: 'nx run-many --target=projen --all && projen',
+  lint: 'nx run-many --target=lint --all && eslint . --fix',
+  typecheck:
+    'nx run-many --target=typecheck --all && tsc --noEmit -p tsconfig.dev.json',
 });
 
 project.synth();
