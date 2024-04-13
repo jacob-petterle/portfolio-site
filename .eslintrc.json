@@ -124,7 +124,8 @@
           "method"
         ]
       }
-    ]
+    ],
+    "quote-props": "off"
   },
   "overrides": [
     {
